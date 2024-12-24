@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: accountbook
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/accountbook
+    username: postgres
+    password: 1234
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        show_sql: true
+        use_sql_comment: true
+        highlight_sql: false
+        default_schema: public
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: true
+  thymeleaf:
+    cache: false
+
+server:
+  port: 8000
+
+logging:
+  level:
+    root: info
+    org:
+      hibernate:
+        SQL: off
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+      hibernate.orm.jdbc.bind: trace
+      
+# Additional commented configurations
+# Uncomment if needed
+#    org.springframework.jdbc.core: DEBUG
+#    org.springframework.jdbc.datasource: DEBUG
